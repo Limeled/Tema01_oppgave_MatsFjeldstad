@@ -1,15 +1,85 @@
+* {
+    margin: 0;
+}
+
 body {
     background-color: blue;
 }
 
 header {
-    display: flex;
-    background-color: #2b2b2b;
-    
-}
-
-header nav {
     position: fixed;
     width: 100vw;
+    height: 5vh;
+    padding: 16px;
+    background-color: #f1f1f1;
 }
 
+#cb {
+    position: absolute;
+    right: 100px;
+    display: none;
+}
+
+#burger {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    grid-template-rows: 3px 3px 3px;
+    align-content: space-between;
+    
+    cursor: pointer;
+
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+}
+
+#burger div {
+    background-color: #2b2b2b;
+}
+
+#menu {
+    display: grid;
+    width: 15vw;
+    height: 60vh;
+    padding: 0;
+    background-color: orange;
+    justify-items: center;
+    align-content: space-around;
+ 
+    position: absolute;
+    top: -100vh;
+    left: 0;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+#menu a {
+    text-decoration: none;
+    color: white;
+    font-family: Helvetica;
+    font-weight: 700;
+}
+
+#cb:checked ~ #menu {
+    top: 0;
+}
+
+#burger div {
+    transition: 0.2s;
+}
+
+#cb:checked ~ #burger div:first-child {
+    transform: translateY(29px) translateX(2px) rotate(-135deg);
+    width: 18px;
+}
+
+#cb:checked ~ #burger div:nth-child(2) {
+    transform: translateY(4px) translateX(0.5px) rotate(-90deg);
+}
+
+#cb:checked ~ #burger div:last-child {
+    transform: translateY(0px) translateX(13px) rotate(-45deg);
+    width: 18px;
+}
